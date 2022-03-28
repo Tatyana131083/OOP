@@ -39,39 +39,42 @@ namespace OOP_Account
             _number++;
         }
 
-        public void SetAccountNumber()
+        public AccountType Type
         {
-            SetNumber();
-            _accountNumber = _number;
-        }
-
-        public long GetAccountNumber()
-        {
-            return _accountNumber;
-        }
-
-        public void SetAccountType(AccountType accountType)
-        {
-            _accountType = accountType;
-        }
-
-        public AccountType GetAccountType()
-        {
-            return _accountType;
-        }
-
-        public void SetBalance(decimal balance)
-        {
-            if(balance > 0.0M)
+            get
             {
-                _balance = balance;
-            }            
+                return _accountType;
+            }
+            set
+            {
+                _accountType = value;
+            }
         }
 
-        public decimal GetBalance()
+
+        public long AccountNumber
         {
-            return _balance;
+            get
+            {
+                return _accountNumber;
+            }
         }
+
+        public decimal Balance
+        {
+            get
+            {
+                return _balance;
+            }
+            set
+            {
+                if (value > 0.0M)
+                {
+                    _balance = value;
+                }
+            }
+        }
+
 
     }
 
