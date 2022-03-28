@@ -20,7 +20,19 @@ namespace OOP_Account
         private long _accountNumber;
         private AccountType _accountType;
         private decimal _balance;
-        
+
+
+        public Account(decimal balance) : this(AccountType.Текущий, balance) {} 
+
+        public Account(AccountType accountType) : this(accountType, 0.0M) {}
+
+        public Account(AccountType accountType, decimal balance)
+        {
+            _accountType = accountType;
+            _balance = balance;
+            SetNumber();
+            _accountNumber = _number;
+        }
 
         static private void SetNumber()
         {
