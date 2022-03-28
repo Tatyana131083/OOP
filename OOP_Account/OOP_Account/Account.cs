@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 
 internal enum AccountType
 {
@@ -30,14 +25,9 @@ namespace OOP_Account
         {
             _accountType = accountType;
             _balance = balance;
-            SetNumber();
-            _accountNumber = _number;
+            _accountNumber = ++_number;
         }
 
-        static private void SetNumber()
-        {
-            _number++;
-        }
 
         public AccountType Type
         {
@@ -73,6 +63,35 @@ namespace OOP_Account
                     _balance = value;
                 }
             }
+        }
+
+        /// <summary>
+        /// Пополнение счета
+        /// </summary>
+        /// <param name="depositAmount">Сумма пополнения</param>
+        public void Deposit(decimal depositAmount)
+        {                                                                 
+            if (depositAmount > 0.0m) 
+            {                                                             
+                Balance = Balance + depositAmount; 
+            }                                                             
+        }
+
+        /// <summary>
+        /// Снятие со счета
+        /// </summary>
+        /// <param name="withdrawalAmount">Сумма снятия</param>
+        public void Withdrawal(decimal withdrawalAmount)
+        {
+            if (Balance >= withdrawalAmount)
+            {
+                Balance = Balance - withdrawalAmount;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"Number - {AccountNumber}; Type - {Type}; Balance - {Balance:C}";
         }
 
 
