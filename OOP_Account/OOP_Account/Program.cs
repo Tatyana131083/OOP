@@ -9,11 +9,11 @@ namespace OOP_Account
             Account account1 = new Account();
             Account account2 = new Account();
 
-            account1.SetAccountNumber(471158790025);
+            account1.SetAccountNumber();
             account1.SetAccountType(AccountType.Текущий);
             account1.SetBalance(12000.00M);
 
-            account2.SetAccountNumber(471158790026);
+            account2.SetAccountNumber();
             account2.SetAccountType(AccountType.Депозитный);
             account2.SetBalance(240000.00M);
 

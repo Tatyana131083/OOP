@@ -16,13 +16,21 @@ namespace OOP_Account
 {
     internal class Account
     {
+        static private long _number = 471158790040;
         private long _accountNumber;
         private AccountType _accountType;
         private decimal _balance;
         
-        public void SetAccountNumber(long accountNumber)
+
+        static private void SetNumber()
         {
-            _accountNumber = accountNumber;
+            _number++;
+        }
+
+        public void SetAccountNumber()
+        {
+            SetNumber();
+            _accountNumber = _number;
         }
 
         public long GetAccountNumber()
