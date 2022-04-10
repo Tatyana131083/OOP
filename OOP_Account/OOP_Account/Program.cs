@@ -19,6 +19,10 @@ namespace OOP_Account
             account2.Withdrawal(45000);
             Console.WriteLine("Снятие со счета 45000 руб.");
             Console.WriteLine(account2);
+
+            account1.Transaction(account2, 100000M);
+            Console.WriteLine(account1);
+            Console.WriteLine(account2);
         }
     }
 }

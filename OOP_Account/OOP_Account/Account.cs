@@ -94,6 +94,22 @@ namespace OOP_Account
             return $"Number - {AccountNumber}; Type - {Type}; Balance - {Balance:C}";
         }
 
+        /// <summary>
+        /// Перевод деньг с одного счета на другой
+        /// </summary>
+        /// <param name="fromAccount">Счет откуда снимаются деньги</param>
+        /// <param name="amount">Сумма перевода</param>
+        public bool Transaction(Account fromAccount, decimal amount)
+        {
+            if(fromAccount.Balance >= amount && amount > 0M)
+            {
+                fromAccount.Balance -= amount;
+                this.Balance += amount;
+                return true;
+            }
+            return false;
+        }
+
 
     }
 
