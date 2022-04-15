@@ -1,11 +1,11 @@
-﻿
+﻿using System;
 
 internal enum AccountType
 {
-    Текущий,
-    Расчетный,
-    Кредитный,
-    Депозитный
+    Current,
+    Calculated,
+    Credit,
+    Deposit
 }
 namespace OOP_Account
 {
@@ -17,7 +17,7 @@ namespace OOP_Account
         private decimal _balance;
 
 
-        public Account(decimal balance) : this(AccountType.Текущий, balance) {} 
+        public Account(decimal balance) : this(AccountType.Current, balance) {} 
 
         public Account(AccountType accountType) : this(accountType, 0.0M) {}
 
@@ -108,6 +108,31 @@ namespace OOP_Account
                 return true;
             }
             return false;
+        }
+
+        public static bool operator ==(Account acnt1, Account acnt2)
+        {
+            if (acnt1.AccountNumber == acnt2.AccountNumber && acnt1.Type == acnt2.Type &&
+                acnt1.Balance == acnt2.Balance)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public static bool operator !=(Account acnt1, Account acnt2)
+        {
+            return (!(acnt1 == acnt2));
+        }
+
+        public override bool Equals(Object obj)
+        {
+            return ((obj is Account) && (this == (Account)obj));
+        }
+
+        public override int GetHashCode()
+        {
+            return AccountNumber.GetHashCode();
         }
 
 
